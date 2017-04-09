@@ -1,0 +1,678 @@
+
+political_decisions = {
+
+	hellenic_parliament = {
+			potential = {
+				tag = GRE
+				government = absolute_monarchy
+				NOT = {
+					has_country_flag = voule_ton_ellinon
+				}
+			}
+		
+			allow = {
+				plurality = 3
+				prestige = 1
+			}
+			
+			effect = {
+				set_country_flag = voule_ton_ellinon
+				political_reform = wealth_weighted_voting
+				government = hms_government
+				any_pop = {
+					militancy = -2
+					
+				}
+			}
+		}
+
+	move_capital_constantinople = {
+			potential = {
+				 
+						tag = GRE 
+						owns = 860 
+						NOT = { capital = 860 } 
+						860 = { is_core = THIS } 
+			}
+		
+			allow = {
+				 war = no 
+			}
+			
+			effect = {
+				capital = 860 
+				860 = { change_province_name = "Constantinople"	} 
+				860 = { 
+					any_pop = { 
+						imit = { religion = orthodox } militancy = -2 
+					}
+					
+				} 
+				
+			}
+		}
+		
+
+	
+		megali_idea = {
+			potential = {
+				tag = GRE
+				NOT = {
+					has_country_flag = greece_has_got_a_brand_new_bag
+				}
+			}
+			
+			allow = {
+				#invention = national_fraternity
+				owns = 832
+				owns = 831
+				owns = 833
+				owns = 825
+				owns = 824
+				owns = 820
+				owns = 819
+				owns = 821
+				owns = 805
+				owns = 822
+				owns = 823
+				owns = 829
+				owns = 830
+				owns = 844
+				owns = 843
+				owns = 846
+			}
+			
+			effect = {
+				prestige = 20
+				badboy = -5
+				TUR_860 = {
+					add_core = GRE
+				}
+				TUR_863 = {
+					add_core = GRE
+				}
+				TUR_869 = {
+					add_core = GRE
+				}
+				set_country_flag = greece_has_got_a_brand_new_bag
+			}
+		}
+
+
+
+	descision_immigrate= {
+		potential = {				
+				OR {tag = GRE
+				tag = BYZ}	
+		}		
+		allow = {		
+				
+			}
+			effect = {
+			
+				add_country_modifier = {
+					name = test_immigrate 
+					duration = -1
+				}			
+			}
+
+	}
+	
+		descision_assimilate= {
+		potential = {				
+				OR {tag = GRE
+				tag = BYZ}	
+		}		
+		allow = {		
+				
+			}
+			effect = {
+			
+				add_country_modifier = {
+					name = test_assimilate 
+					duration = -1
+				}			
+			}
+
+	}
+	
+
+
+#	holy_constantinople= {
+#		potential = {				
+#				OR {tag = GRE
+#				tag = BYZ}	
+#		}		
+#		allow = {		
+#			owns = 860 # Constantinople		
+#			}
+#			effect = {
+#			860	= {				# Constantinople
+#				add_province_modifier = {
+#					name = attraction_of_ecumenical_patriarchate
+#					duration = -1
+#				}			
+#			}
+#
+#		}
+#	}
+	
+
+	greekibaldi_redsirts= {
+	picture = garibaldi_redshirts
+		potential = {
+			tag = GRE
+			#NOT = {
+			    #exists = BYZ
+				#owns = 860
+			#	has_global_flag = greekibaldi_redsirts
+				
+			#}
+		}
+
+		allow = {
+			#war = no
+			#prestige = 50
+			#OR = {	
+			owns = 834 # Athens
+			#owns = 805
+			#owns = 830
+			#owns = 825
+			#}
+		}
+
+		effect = {
+			set_global_flag = greekibaldi_redsirts
+			prestige = 10
+			badboy = 2
+			any_country = {
+				limit = {
+					tag = TUR
+				}
+				any_owned = {
+					add_province_modifier = {
+						name = nationalist_agitation
+						duration = 100
+						}
+					}
+				any_pop = {
+					limit = {
+						OR = {
+							has_pop_culture = greek
+						}
+					}
+					consciousness = 2
+					militancy = 10
+				}
+				relation = {
+					who = GRE
+					value = -50
+				}
+			}			
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+
+	baby_time= {
+		potential = {
+				OR {tag = GRE
+				tag = BYZ}	
+				      
+			
+		}
+		
+		allow = {
+			
+			}
+		
+		
+			effect = {			
+				
+					add_country_modifier  = {
+							name = country_small_baby_boom 
+							duration = 730
+						}
+								
+				}
+			}
+			
+	athens_university= {
+		potential = {
+				OR {tag = GRE
+				tag = BYZ}	
+					
+			}
+		allow = {
+				owns = 834 # Athens
+				money = 7000
+				NOT  {has_country_modifier   = athens_university}
+			}		
+		effect = {
+                prestige = 5
+				treasury = -6000
+				set_country_flag = athens_university
+				
+				834	= {				# Athens
+
+					life_rating = 5
+			 		add_province_modifier = {
+			 		name = attraction_of_great_university    
+			 		duration = -1
+			 		}				
+				}
+				add_country_modifier = {
+					name = athens_great_university
+					duration = -1
+				}
+		}
+	}
+	
+	cheat_get_cash{
+		potential = {
+					OR {tag = GRE
+					tag = BYZ}	
+						
+				}
+			allow = {				
+					
+				}		
+			effect = {
+					prestige = 1000
+					treasury = 1000000
+					}
+	}
+	
+	found_spy_network= {
+		potential = {
+				OR {tag = GRE
+				tag = BYZ}	
+				NOT  {has_country_modifier   = national_spy_network}	
+			}
+		allow = {				
+				money = 7000				
+			}		
+		effect = {
+				prestige = 1
+				treasury = -7000
+		
+				add_country_modifier = {
+					name = national_spy_network
+					duration = -1
+				}
+		}
+	}
+	#Chance to increase militancy among christian populace in ottoman empire
+	foment_unrest_among_christians_ottoman= {
+		potential = {
+				OR {tag = GRE
+				tag = BYZ}	
+				has_country_modifier  = national_spy_network	
+				exists = TUR
+			}
+		allow = {
+				money = 2000
+				NOT  {has_country_modifier   = recent_covert_operations}
+			}		
+		effect = {                
+				treasury = -2000
+				
+			random_list = {
+			10 = { any_country = {limit = {	tag = TUR	}any_owned = {
+					add_province_modifier = {
+						name = nationalist_agitation
+						duration = 100	}
+				any_pop = {	limit = {NOT = {	has_pop_religion = sunni}}consciousness = 3	militancy = 5}
+				relation = {who = GRE value = -100}	}}}
+			25 = { any_country = {limit = {	tag = TUR	}any_owned = {
+					add_province_modifier = {
+						name = nationalist_agitation
+						duration = 100	}
+				any_pop = {	limit = {NOT = {	has_pop_religion = sunni}}consciousness = 2	militancy = 3}
+				relation = {who = GRE value = -50}	}}}
+			35 = { any_country = {limit = {	tag = TUR	}any_owned = {
+					add_province_modifier = {
+						name = nationalist_agitation
+						duration = 100	}
+				any_pop = {	limit = {NOT = {	has_pop_religion = sunni}}consciousness = 1	militancy = 1}
+				relation = {who = GRE value = -25}	}}}
+			15 = { relation = {	who = TUR	value = -50 } prestige -2 }
+			10 = { relation = {	who = TUR	value = -100 } prestige -5}
+			} 
+				add_country_modifier = {
+					name = recent_covert_operations
+					duration = 365
+				}
+		}
+	}
+	
+	
+	constantinople_university= {
+		potential = {
+			OR {tag = GRE
+				tag = BYZ}	
+					
+			}
+		allow = {
+				treasury = 60000
+				NOT  {has_country_flag  = constantinople_university}
+			}		
+		effect = {
+                prestige = 25
+				treasury = -50000
+				set_country_flag = constantinople_university
+				
+				860	= {				# Byzantium, Nova Roma, Constantinople
+					life_rating = 5
+			 		add_province_modifier = {
+			 		name = attraction_of_great_university    
+			 		duration = -1
+			 		}				
+				}
+				add_country_modifier = {
+					name = constantinople_great_university
+					duration = -1
+				}
+			
+		}
+	}	
+	
+	cheat_get_constantinople= {
+		potential = {
+			OR {tag = GRE
+				tag = BYZ}	
+					
+			}
+		allow = {
+				
+				NOT  {has = 860}
+			}		
+		effect = {
+               inherit = TUR
+			
+		}
+	}	
+		
+pop_test = {
+		potential = {
+			tag = GRE
+			
+		}
+		
+		allow = {
+			year = 1836
+		}
+		
+		effect = {
+			any_pop = {
+				limit = {
+					#has_pop_culture = greek
+					
+						location = {
+								province_id = 840								
+						}
+					}
+					reduce_pop =  2
+					move_pop = 840
+					reduce_pop =  1.2
+					move_pop = 834
+				}
+			
+				
+			}
+	}	
+
+claim_southern_italy = {
+		potential = {
+			tag = GRE
+			NOT = { has_country_flag = southern_italy_claimed }			
+		}		
+		allow = {		
+			#war_policy = jingoism
+			#invention = national_fraternity
+			owns = 832
+			owns = 805
+			owns = 823
+			owns = 844
+			owns = 843
+			owns = 846
+			
+		}		
+		effect = {
+			prestige = 10
+			badboy = 7
+			#Apulia
+			758 = {	
+				add_core = GRE
+			}
+			#Calabria
+			759 = {
+				add_core = GRE
+			}
+			760 = {
+				add_core = GRE
+			}
+			#Sicily
+			762 = {
+				add_core = GRE
+			}
+			763 = {
+				add_core = GRE
+			}
+			764 = {
+				add_core = GRE
+			}
+			set_country_flag = southern_italy_claimed
+		}
+	}	
+	
+	claim_magna_cherson = {
+		potential = {
+			tag = GRE
+			NOT = { has_country_flag = magna_cherson_claimed }	
+			
+		}		
+		allow = {		
+			#war_policy = jingoism
+			#invention = national_fraternity
+			owns = 832
+			owns = 805
+			owns = 823
+			owns = 844
+			owns = 843
+			owns = 846
+			owns = 860
+			
+		}		
+		effect = {
+			prestige = 10
+			badboy = 7
+			#Crimea
+			964 = {	
+				add_core = GRE
+			}			
+			966 = {
+				add_core = GRE
+			}
+			967 = {
+				add_core = GRE
+			}
+			
+			#Mariopolis Region (Southern Ukraine) TODO add more, check if makes sense based on pops
+			#Odessa
+			968 = {	
+				add_core = GRE
+			}
+			965 = {	
+				add_core = GRE
+			}
+			973 = {	
+				add_core = GRE
+			}
+			975 = {	
+				add_core = GRE
+			}
+			976 = {	
+				add_core = GRE
+			}
+			979 = {	
+				add_core = GRE
+			}
+			1047= {	
+				add_core = GRE
+			}
+			
+			set_country_flag = magna_cherson_claimed
+		}
+	}
+
+
+claim_euxine_sea_land = {
+		potential = {
+			tag = GRE
+			NOT = { has_country_flag = euxine_sea_claimed }	
+			
+		}		
+		allow = {		
+			#war_policy = jingoism
+			#invention = national_fraternity
+			owns = 832
+			owns = 805
+			owns = 823
+			owns = 844
+			owns = 843
+			owns = 846
+			owns = 860
+			
+		}		
+		effect = {
+			prestige = 10
+			badboy = 7
+			#Crimea
+			
+			#NE Anatolia (Trabzond area) 
+			1096 = {
+				add_core = GRE
+			}
+			886 = {
+				add_core = GRE
+			}
+			888 = {
+				add_core = GRE
+			}
+			882 = {
+				add_core = GRE
+			}
+			884 = {
+				add_core = GRE
+			}
+			887 = {
+				add_core = GRE
+			}
+			879 = {
+				add_core = GRE
+			}
+			881 = {
+				add_core = GRE
+			}
+			880 = {
+				add_core = GRE
+			}
+			883 = {
+				add_core = GRE
+			}
+			
+			set_country_flag = euxine_sea_claimed
+		}
+	}
+
+	claim_southcentral_anatolia = {
+		potential = {
+			tag = GRE
+			NOT = { has_country_flag = southcentral_anatolia_claimed }	
+			
+		}		
+		allow = {		
+			#war_policy = jingoism
+			#invention = national_fraternity
+			owns = 832
+			owns = 805
+			owns = 823
+			owns = 844
+			owns = 843
+			owns = 846
+			owns = 860
+			
+		}		
+		effect = {
+			prestige = 10
+			badboy = 7
+			
+			#South and Central Anatolia (Konya, Ankara, Antioch)
+			#Konya
+			873 = {
+				add_core = GRE
+			}
+			874 = {
+				add_core = GRE
+			}
+			875 = {
+				add_core = GRE
+			}
+			866 = {
+				add_core = GRE
+			}
+			#Ankara
+			868 = {
+				add_core = GRE
+			}
+			876 = {
+				add_core = GRE
+			}
+			877 = {
+				add_core = GRE
+			}
+			878 = {
+				add_core = GRE
+			}
+			#SE Anatolia
+			895 = {
+				add_core = GRE
+			}
+			894 = {
+				add_core = GRE
+			}
+			896 = {
+				add_core = GRE
+			}
+			898 = {
+				add_core = GRE
+			}
+			#Antioch
+			900 = {
+				add_core = GRE
+			}
+			#Far East
+			889 = {
+				add_core = GRE
+			}
+			899 = {
+				add_core = GRE
+			}
+			893 = {
+				add_core = GRE
+			}
+			
+			
+			
+			set_country_flag = southcentral_anatolia_claimed
+		}
+	}			
+	 
+#TODO Inner Balkans 
+#TODO Outer Balkans
+			 
+			 
+}
+
+

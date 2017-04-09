@@ -1,0 +1,170 @@
+
+province_event = {
+	
+	id = 99901
+
+	trigger = {
+		year = 1836		#1837
+		province_id = 840			#Corinth		
+		not = { has_province_modifier = ancient_lifestyle_revival} 
+	}
+
+	mean_time_to_happen =  {
+		months = 1 #3
+	}
+
+	title = "Raisins Of Corinth!"
+	desc = "From London to Paris to New York, the wealthy and middle classes are demanding to be served this sweet delight!"
+	#" Our people have grown currants here since ancient times, before even adopting Christianity.  Our recent land reforms have created a class of independent farmers and now they are having more children so that they will have more hands to work the land. This will greatly help our impoverished nation"
+
+	option = {
+		name = "Our peasant families will prosper!"
+		
+		add_province_modifier = {
+			name = ancient_lifestyle_revival  
+			duration = -1
+		}		
+	}
+}
+
+
+province_event = {
+	
+	id = 99902
+
+	trigger = {
+		year = 1836	
+		province_id = 839		# Nafplion (maniots)
+		not = { has_province_modifier = ancient_lifestyle_revival} #trade_goods = dye }
+	}
+
+	mean_time_to_happen =  {
+		months = 3
+	}
+
+	title = "EVTNAME99902"
+	desc = "EVTDESC99902"
+
+	option = {
+		name = "Dye, dye, dye my darling!"
+		trade_goods = dye
+		add_province_modifier = {
+			name = ancient_lifestyle_revival  
+			duration = -1
+		}		
+	}
+}
+
+province_event = {
+	
+	id = 99903
+
+	trigger = {
+		year = 1837
+		province_id = 842
+		not = { has_province_modifier = economic_boom} #trade_goods = timber }
+	}
+
+	mean_time_to_happen =  {
+		months = 3
+	}
+
+	title = "EVTNAME99903"
+	desc = "EVTDESC99903"
+
+	option = {
+		name = "Timber!!"
+		trade_goods = timber
+		add_province_modifier = {
+			name = economic_boom 
+			duration = -1
+		}		
+	}
+}
+
+
+country_event = {
+	
+	id = 99904
+
+	trigger = {
+		 has_country_modifier = athens_great_university
+		 not = {literacy = 0.21}
+	}
+
+	mean_time_to_happen =  {
+		months = 24
+	}
+
+	title = "Benefits of education"
+	desc = "The recently educated return home and teach their family and friends the ways of letters and the great literature of our people. , "
+	picture = "treaty"
+	option = {
+		name = "Alpha Beta Gamma Delta..."
+		any_pop = { limit = {  has_pop_culture = greek  } literacy = 0.02 }
+		}		
+	}
+}
+#Too OP to get right away... or at all?
+#province_event = {
+#	
+#	id = 99904
+#
+#	trigger = {
+#		year = 1836
+#		province_id = 834
+#		#not = { has_province_modifier = mines_of_lavrion} # precious_metals }
+#	}
+#
+#	mean_time_to_happen =  {
+#		months = 1
+#	}
+#	title = "EVTNAME99904"
+#	desc = "EVTDESC99904"
+#	#title = "A new silver vein found in the mines of Lavrion!"
+#	#desc = "As in the ancient, times the mines that gave Athens her great wealth that allowed here to rule the Agean are being worked again!"
+#
+#	option = {
+#		name = "EVTOPTA99904"
+#		trade_goods = precious_metal
+#		add_province_modifier = {
+#			name = mines_of_lavrion 
+#			duration = -1
+#		}		
+#	}
+#}
+
+#province_event = {
+#	
+#	id = 99005
+#
+#	trigger = {
+#		year = 1836	
+#		province_id = 834 #Athens
+#		not = { produces = iron }
+#		#produces = precious_metal
+#		
+#	}
+#
+#	mean_time_to_happen =  {
+#		months = 1
+#	}
+#
+#	title = "The silver mines of Lavrion... have run dry"
+#	desc = "Luckily there are other metals in these caves that we can mine. Our machinery can easily be adapted for these purposes."
+#
+#	option = {
+#		name = "At least the mine continues to operate..."
+#		trade_goods = iron 
+#		add_province_modifier = {
+#			name = mines_of_lavrion 
+#			duration = -1
+#		}		
+#	}
+#}
+
+
+
+
+
+
